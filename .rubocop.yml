@@ -1,0 +1,6 @@
+LineLength:
+  Max: 999
+Documentation:
+  Enabled: false
+StringLiterals:
+  Enabled: false
