@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-# giant_bomb_api
-=======
-# filter8
-A unofficial ruby wrapper for Filter8 (http://filter8.com). An API to filter lots of stuff from texts, e.g. bad words. 
+# Giant Bomb API
+
+An unofficial ruby wrapper for the Giantbomb API (http://api.giantbomb.com). An API that provides structured data about videogames.
 
 [![Code Climate](https://codeclimate.com/github/toadle/filter8/badges/gpa.svg)](https://codeclimate.com/github/toadle/filter8)
 [![Test Coverage](https://codeclimate.com/github/toadle/filter8/badges/coverage.svg)](https://codeclimate.com/github/toadle/filter8)
@@ -13,7 +11,7 @@ A unofficial ruby wrapper for Filter8 (http://filter8.com). An API to filter lot
 As you'd expect. Nothing special here: 
 
 ```
-gem install filter8
+gem install giant_bomb_api
 ```
 
 # How to use
@@ -48,4 +46,3 @@ You can find the author via http://toadle.me
 
 ## License
 The filter8-gem is released under the [MIT License](http://opensource.org/licenses/MIT).
->>>>>>> initial commit
