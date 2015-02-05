@@ -17,9 +17,11 @@ Gem::Specification.new do |s|
   s.rubygems_version          = %q{1.6.2}
 
   s.add_dependency 'faraday'
+  s.add_dependency 'faraday_middleware'
 
   s.add_development_dependency 'rake', '~> 10.1.0'
   s.add_development_dependency 'rspec', '~> 3.0'
+  s.add_development_dependency 'byebug'
   s.add_development_dependency 'timecop'
   s.add_development_dependency 'codeclimate-test-reporter'
 

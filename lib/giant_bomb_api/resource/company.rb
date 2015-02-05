@@ -1,5 +1,5 @@
 module GiantBombApi
-  class Company < Resource
+  class Resource::Company < Resource
 
     private
 

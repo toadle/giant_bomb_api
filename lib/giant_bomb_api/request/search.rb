@@ -1,6 +1,5 @@
 module GiantBombApi
   class Request::Search < GiantBombApi::Request
-    ENDPOINT = '/search'
 
     def initialize(query, resources: [GiantBombApi::Resource::Game], limit: 100, page: 1)
       params = {
@@ -9,7 +8,11 @@ module GiantBombApi
         limit: limit,
         page: page
       }
-      super ENDPOINT, params
+      super end_point, params
+    end
+
+    def end_point
+      '/search'
     end
   end
 end

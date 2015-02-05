@@ -1,6 +1,7 @@
 require 'digest'
 require 'uri'
 require 'faraday'
+require 'faraday_middleware'
 require 'json'
 
 module GiantBombApi
@@ -15,16 +16,36 @@ module GiantBombApi
     end
 
     def send_request(giant_bomb_api_request)
-      conn = Faraday.new(:url => API_URL) do |faraday|
+      connection = Faraday.new(url: API_URL) do |faraday|
         faraday.request  :url_encoded
+        faraday.use      FaradayMiddleware::FollowRedirects
         faraday.adapter  Faraday.default_adapter
       end
 
-      response = conn.get "#{API_ENDPOINT}", giant_bomb_api_request.request_params
+      response = connection.get do |req|
+        req.url giant_bomb_api_request.end_point
+        req.options[:timeout] = 5
+        req.options[:open_timeout] = 2
+        req.params = giant_bomb_api_request.params.merge(format: 'json', api_key: api_key)
+      end 
 
-      raise Exception.new("Status: #{response.status}): #{response.body}") if(response.status != GiantBomb::Response::Status::OK)
+      response_json = JSON.parse(response.body)
 
-      JSON.parse(response.body)
+      if(response_json["status_code"] == 1)
+        handle_success_response(response_json)
+      else
+        handle_error_response(response_json)
+      end
+    end
+
+    private
+
+    def handle_success_response(response_json)
+      puts JSON.pretty_generate(response_json)
+    end
+
+    def handle_error_response(response_json)
+      raise Exception::ApiError.new(response_json["status_code"], response_json["error"])
     end
 
   end

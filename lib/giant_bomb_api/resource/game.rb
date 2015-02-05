@@ -1,4 +1,4 @@
 module GiantBombApi
-  class Resource::Game < GiantBombApi::Resource
+  class Resource::Game < Resource
   end
 end

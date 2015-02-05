@@ -1,9 +1,12 @@
 require "giant_bomb_api/exception"
+require "giant_bomb_api/exception/api_error"
 require "giant_bomb_api/client"
 require "giant_bomb_api/request"
 require "giant_bomb_api/request/search"
 require "giant_bomb_api/resource"
 require "giant_bomb_api/resource/game"
+require "giant_bomb_api/resource/character"
+require "giant_bomb_api/resource/company"
 
 module GiantBombApi
 
@@ -31,10 +34,10 @@ module GiantBombApi
   end
 
   def self.client
-    raise_error "Configure GiantBombApi-module before using" if GiantBombApi.configuration.nil?
-    raise_error "Configure 'api_key' first" if GiantBombApi.configuration.api_key.nil?
+    raise_error "Configure GiantBombApi-module before using" if configuration.nil?
+    raise_error "Configure 'api_key' first" if configuration.api_key.nil?
 
-    @@client ||= Client.new(api_key: GiantBombApi.configuration.api_key)
+    @@client ||= GiantBombApi::Client.new(api_key: configuration.api_key)
   end
 
 end
