@@ -23,7 +23,7 @@ module GiantBombApi
     end
 
     def self.discover_resource_name(string)
-      match_data = string.match("/api/(?<resource_name>[a-z]*)/")
+      match_data = string.match("/api/(?<resource_name>[a-z_]*)/")
       return if match_data.nil?
       return match_data["resource_name"]
     end

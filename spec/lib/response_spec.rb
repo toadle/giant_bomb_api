@@ -7,18 +7,16 @@ describe GiantBombApi::Response do
 
   describe 'initialize' do
     context "when handed a search-result" do
-      it 'sets the correct values on itself' do
-        response = GiantBombApi::Response.new(search_response)
+      let(:response) { GiantBombApi::Response.new(search_response) }
 
+      it 'sets the correct values on itself' do
         expect(response.limit).to eq 100
         expect(response.offset).to eq 0
         expect(response.number_of_page_results).to eq 1
         expect(response.number_of_total_results).to eq 1
       end
 
-      it 'creates the correct collection of objects' do
-        response = GiantBombApi::Response.new(search_response)
-
+      it 'creates the correct results of objects' do
         expect(response.results.count).to eq 1
 
         result = response.results.first
@@ -38,6 +36,10 @@ describe GiantBombApi::Response do
         expect(result.name).to eq "Driveclub"
         expect(result.number_of_user_reviews).to eq 0
         expect(result.original_release_date).to eq "2014-10-07 00:00:00"
+      end
+
+      it 'sets the correct platforms' do
+        result = response.results.first
 
         expect(result.platforms.count).to eq 1
         platform = result.platforms.first
@@ -47,6 +49,23 @@ describe GiantBombApi::Response do
         expect(platform.id).to eq 146
         expect(platform.name).to eq "PlayStation 4"
         expect(platform.abbreviation).to eq "PS4"
+      end
+
+      it 'sets the correct game_ratings' do
+        result = response.results.first
+
+        expect(result.original_game_rating.count).to eq 2
+
+        rating1 = result.original_game_rating[0]
+        rating2 = result.original_game_rating[1]
+
+        expect(rating1.api_detail_url).to eq "http://www.giantbomb.com/api/game_rating/3065-7/"
+        expect(rating1.id).to eq 7
+        expect(rating1.name).to eq "PEGI: 3+"
+
+        expect(rating2.api_detail_url).to eq "http://www.giantbomb.com/api/game_rating/3065-25/"
+        expect(rating2.id).to eq 25
+        expect(rating2.name).to eq "CERO: A"
       end
     end
   end
