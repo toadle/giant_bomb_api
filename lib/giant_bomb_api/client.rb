@@ -41,7 +41,7 @@ module GiantBombApi
     private
 
     def handle_success_response(response_json)
-      puts JSON.pretty_generate(response_json)
+      GiantBombApi::Response.new response_json
     end
 
     def handle_error_response(response_json)

@@ -1,0 +1,59 @@
+{
+  "error": "OK",
+  "limit": 100,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": [
+    {
+      "aliases": "Drive Club\r\n#DRIVECLUB",
+      "api_detail_url": "http://www.giantbomb.com/api/game/3030-41693/",
+      "date_added": "2013-02-20 15:57:29",
+      "date_last_updated": "2014-11-30 06:30:47",
+      "deck": "Driveclub is a team-based racing game from Evolution Studios for PlayStation 4.",
+      "description": "<p style=\"\"> </p>",
+      "expected_release_day": null,
+      "expected_release_month": null,
+      "expected_release_quarter": null,
+      "expected_release_year": null,
+      "id": 41693,
+      "image": {
+        "icon_url": "http://static.giantbomb.com/uploads/square_avatar/8/82063/2560905-driveclub.jpg",
+        "medium_url": "http://static.giantbomb.com/uploads/scale_medium/8/82063/2560905-driveclub.jpg",
+        "screen_url": "http://static.giantbomb.com/uploads/screen_medium/8/82063/2560905-driveclub.jpg",
+        "small_url": "http://static.giantbomb.com/uploads/scale_small/8/82063/2560905-driveclub.jpg",
+        "super_url": "http://static.giantbomb.com/uploads/scale_large/8/82063/2560905-driveclub.jpg",
+        "thumb_url": "http://static.giantbomb.com/uploads/scale_avatar/8/82063/2560905-driveclub.jpg",
+        "tiny_url": "http://static.giantbomb.com/uploads/square_mini/8/82063/2560905-driveclub.jpg"
+      },
+      "name": "Driveclub",
+      "number_of_user_reviews": 0,
+      "original_game_rating": [
+        {
+          "api_detail_url": "http://www.giantbomb.com/api/game_rating/3065-7/",
+          "id": 7,
+          "name": "PEGI: 3+"
+        },
+        {
+          "api_detail_url": "http://www.giantbomb.com/api/game_rating/3065-25/",
+          "id": 25,
+          "name": "CERO: A"
+        }
+      ],
+      "original_release_date": "2014-10-07 00:00:00",
+      "platforms": [
+        {
+          "api_detail_url": "http://www.giantbomb.com/api/platform/3045-146/",
+          "id": 146,
+          "name": "PlayStation 4",
+          "site_detail_url": "http://www.giantbomb.com/playstation-4/3045-146/",
+          "abbreviation": "PS4"
+        }
+      ],
+      "site_detail_url": "http://www.giantbomb.com/driveclub/3030-41693/",
+      "resource_type": "game"
+    }
+  ],
+  "version": "1.0"
+}
