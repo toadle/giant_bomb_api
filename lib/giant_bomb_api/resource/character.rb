@@ -1,5 +1,6 @@
 module GiantBombApi
-  class Resource::Character < Resource
+  class Resource::Character
+    extend GiantBombApi::Resource
 
     private
 

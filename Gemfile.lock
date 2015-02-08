@@ -2,12 +2,19 @@ PATH
   remote: .
   specs:
     giant_bomb_api (0.1)
+      activesupport
       faraday
       faraday_middleware
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (4.2.0)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     byebug (3.5.1)
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
@@ -22,6 +29,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    i18n (0.7.0)
+    json (1.8.2)
+    minitest (5.5.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     rake (10.1.1)
@@ -43,7 +53,10 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.6.0)
+    thread_safe (0.3.4)
     timecop (0.7.1)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby

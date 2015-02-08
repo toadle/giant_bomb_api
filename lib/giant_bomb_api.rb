@@ -1,13 +1,16 @@
+require "giant_bomb_api/resource"
+require "giant_bomb_api/resource_value_setter"
+require "giant_bomb_api/resource/game"
+require "giant_bomb_api/resource/platform"
+require "giant_bomb_api/resource/factory"
+require "giant_bomb_api/resource/character"
+require "giant_bomb_api/resource/company"
+require "giant_bomb_api/response"
 require "giant_bomb_api/exception"
 require "giant_bomb_api/exception/api_error"
 require "giant_bomb_api/client"
-require "giant_bomb_api/response"
 require "giant_bomb_api/request"
 require "giant_bomb_api/request/search"
-require "giant_bomb_api/resource"
-require "giant_bomb_api/resource/game"
-require "giant_bomb_api/resource/character"
-require "giant_bomb_api/resource/company"
 
 module GiantBombApi
 

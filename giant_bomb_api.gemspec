@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'faraday'
   s.add_dependency 'faraday_middleware'
+  s.add_dependency 'activesupport'
 
   s.add_development_dependency 'rake', '~> 10.1.0'
   s.add_development_dependency 'rspec', '~> 3.0'
