@@ -4,6 +4,7 @@ CodeClimate::TestReporter.start
 require 'giant_bomb_api'
 require 'rspec'
 require 'timecop'
+require 'pry-byebug'
 
 RSpec.configure do |config|
 

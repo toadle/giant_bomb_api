@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rake', '~> 10.1.0'
   s.add_development_dependency 'rspec', '~> 3.0'
-  s.add_development_dependency 'byebug'
+  s.add_development_dependency 'pry-byebug'
   s.add_development_dependency 'timecop'
   s.add_development_dependency 'codeclimate-test-reporter'
 

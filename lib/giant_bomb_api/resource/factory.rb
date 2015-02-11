@@ -1,13 +1,8 @@
-require 'active_support/inflector'
-
 module GiantBombApi
   class Resource::Factory
 
-    def self.init_resource_from(json)
-      api_detail_url = json["api_detail_url"]
-      return if api_detail_url.nil?
-
-      resource_name = discover_resource_name(api_detail_url)
+    def self.init_resource_from(json, resource_name = nil)
+      resource_name = discover_resource_name(json["api_detail_url"]) if resource_name.nil?
       return if resource_name.nil?
 
       init_object(resource_name, json)

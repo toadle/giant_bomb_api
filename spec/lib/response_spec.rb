@@ -41,6 +41,19 @@ describe GiantBombApi::Response do
       it 'sets the correct platforms' do
         result = response.results.first
 
+        expect(result.image).to be_present
+        expect(result.image.icon_url).to eq "http://static.giantbomb.com/uploads/square_avatar/8/82063/2560905-driveclub.jpg"
+        expect(result.image.medium_url).to eq "http://static.giantbomb.com/uploads/scale_medium/8/82063/2560905-driveclub.jpg"
+        expect(result.image.screen_url).to eq "http://static.giantbomb.com/uploads/screen_medium/8/82063/2560905-driveclub.jpg"
+        expect(result.image.small_url).to eq "http://static.giantbomb.com/uploads/scale_small/8/82063/2560905-driveclub.jpg"
+        expect(result.image.super_url).to eq "http://static.giantbomb.com/uploads/scale_large/8/82063/2560905-driveclub.jpg"
+        expect(result.image.thumb_url).to eq "http://static.giantbomb.com/uploads/scale_avatar/8/82063/2560905-driveclub.jpg"
+        expect(result.image.tiny_url).to eq "http://static.giantbomb.com/uploads/square_mini/8/82063/2560905-driveclub.jpg"
+      end
+
+      it 'sets the correct platforms' do
+        result = response.results.first
+
         expect(result.platforms.count).to eq 1
         platform = result.platforms.first
 

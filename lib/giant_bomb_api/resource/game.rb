@@ -6,6 +6,8 @@ module GiantBombApi
     resource_attribute :deck, :description, :expected_release_day, :expected_release_month
     resource_attribute :expected_release_quarter, :expected_release_year, :id, :name
     resource_attribute :number_of_user_reviews, :original_release_date
+    
+    resource_attribute :image, resource_name: :image
     resource_attribute :platforms
     resource_attribute :original_game_rating
     

@@ -1,9 +1,12 @@
+require 'active_support/all'
+
 require "giant_bomb_api/resource"
 require "giant_bomb_api/resource_value_setter"
 require "giant_bomb_api/resource/game"
 require "giant_bomb_api/resource/platform"
 require "giant_bomb_api/resource/game_rating"
 require "giant_bomb_api/resource/factory"
+require "giant_bomb_api/resource/image"
 require "giant_bomb_api/resource/character"
 require "giant_bomb_api/resource/company"
 require "giant_bomb_api/response"
