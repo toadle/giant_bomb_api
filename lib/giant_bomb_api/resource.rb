@@ -6,6 +6,14 @@ module GiantBombApi
       base.include ResourceValueSetter
     end
 
+    def resource_name
+      self.name.split('::').last.underscore
+    end
+
+    def find(id, params = {})
+      GiantBombApi.client.send_request(Request::Detail.new(resource_name, id, params))
+    end
+
     def resource_attribute(*attributes, resource_name: nil)
       attributes.each do |attribute_name|
         instance_variable_get("@resource_attributes")[attribute_name] = resource_name

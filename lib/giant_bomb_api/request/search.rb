@@ -4,7 +4,7 @@ module GiantBombApi
     def initialize(query, resources: [GiantBombApi::Resource::Game], limit: 100, page: 1)
       params = {
         query: query,
-        resources: resources.map { |clazz| clazz.name.split('::').last.downcase }.join(','),
+        resources: resources.map { |res| res.resource_name }.join(','),
         limit: limit,
         page: page
       }

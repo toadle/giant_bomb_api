@@ -8,7 +8,15 @@ module GiantBombApi
     resource_attribute :number_of_user_reviews, :original_release_date
     
     resource_attribute :image, resource_name: :image
+    resource_attribute :images, resource_name: :image
+    resource_attribute :videos
+    resource_attribute :developers
     resource_attribute :platforms
+    resource_attribute :genres
+    resource_attribute :franchises
+    resource_attribute :publishers
+    resource_attribute :releases
+    resource_attribute :similar_games, resource_name: :game
     resource_attribute :original_game_rating
     
   end

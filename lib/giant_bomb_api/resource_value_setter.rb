@@ -3,12 +3,13 @@ module GiantBombApi
 
     def initialize(json)
       init_resource_attributes_from(json)
+
+      self.instance_variable_set("@api_detail_url", json["api_detail_url"]) if json["api_detail_url"].present?
     end
 
     def init_resource_attributes_from(hash)
       self.class.instance_variable_get("@resource_attributes").each do |attribute, resource_name|
         attribute = attribute.to_s
-
         hash_value = hash[attribute]
         value = nil
         
