@@ -5,7 +5,23 @@ describe GiantBombApi::Response do
   let(:search_response) { JSON.parse File.read(File.join('spec', 'fixtures', 'search-response.json')) }
   let(:attributes_json) { { "limit" => "123", "offset" => "12", "number_of_page_results" => "1234", "number_of_total_results" => "4000"} }
 
-  describe 'initialize' do
+  describe '#has_more_results?' do
+    context "when total-results is bigger than offset plus page-results" do
+      it 'returns true' do
+        response = GiantBombApi::Response.new({ "offset" => 100, "number_of_page_results" => 100, "number_of_total_results" => 300 })
+        expect(response.has_more_results?).to eq true
+      end
+    end
+
+    context "when total-results is the same as offset + number_of_page_results" do
+      it 'returns false' do
+        response = GiantBombApi::Response.new({ "offset" => 0, "number_of_page_results" => 50, "number_of_total_results" => 50 })
+        expect(response.has_more_results?).to eq false
+      end
+    end
+  end
+
+  describe '#initialize' do
     context "when handed a search-result" do
       let(:response) { GiantBombApi::Response.new(search_response) }
 

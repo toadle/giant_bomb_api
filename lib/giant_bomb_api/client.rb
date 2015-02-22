@@ -32,7 +32,9 @@ module GiantBombApi
       response_json = JSON.parse(response.body)
 
       if(response_json["status_code"] == 1)
-        handle_success_response(response_json)
+        response = handle_success_response(response_json)
+        response.request = giant_bomb_api_request
+        response
       else
         handle_error_response(response_json)
       end

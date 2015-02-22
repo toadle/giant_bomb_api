@@ -6,8 +6,11 @@ module GiantBombApi
       base.include ResourceValueSetter
     end
 
-    def resource_name
-      self.name.split('::').last.underscore
+    def resource_name(resource_name = nil)
+      if resource_name.present?
+        self.instance_variable_set("@resource_name", resource_name)
+      end
+      self.instance_variable_get("@resource_name") || self.name.split('::').last.underscore
     end
 
     def find(id, params = {})

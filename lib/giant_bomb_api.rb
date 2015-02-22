@@ -1,6 +1,7 @@
 require 'active_support/all'
 
 require "giant_bomb_api/resource"
+require "giant_bomb_api/collection_resource"
 require "giant_bomb_api/resource_value_setter"
 require "giant_bomb_api/resource/game"
 require "giant_bomb_api/resource/platform"
@@ -20,6 +21,7 @@ require "giant_bomb_api/client"
 require "giant_bomb_api/request"
 require "giant_bomb_api/request/search"
 require "giant_bomb_api/request/detail"
+require "giant_bomb_api/request/collection"
 
 module GiantBombApi
 

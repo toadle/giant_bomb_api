@@ -1,6 +1,6 @@
 module GiantBombApi
   class Resource::Game
-    extend GiantBombApi::Resource
+    extend GiantBombApi::CollectionResource
     
     resource_attribute :aliases, :api_detail_url, :date_added, :date_last_updated
     resource_attribute :deck, :description, :expected_release_day, :expected_release_month
