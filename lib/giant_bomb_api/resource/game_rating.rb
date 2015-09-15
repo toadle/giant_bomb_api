@@ -1,10 +1,8 @@
 module GiantBombApi
   class Resource::GameRating
-    extend GiantBombApi::Resource
-    
-    resource_attribute :api_detail_url
-    resource_attribute :id
+    extend GiantBombApi::CollectionResource
+    resource_attribute :image
     resource_attribute :name
-    
+    resource_attribute :rating_board
   end
 end

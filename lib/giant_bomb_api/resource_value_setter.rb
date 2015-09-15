@@ -3,8 +3,6 @@ module GiantBombApi
 
     def initialize(json)
       init_resource_attributes_from(json)
-
-      self.instance_variable_set("@api_detail_url", json["api_detail_url"]) if json["api_detail_url"].present?
     end
 
     def init_resource_attributes_from(hash)
@@ -15,9 +13,9 @@ module GiantBombApi
         
         unless hash_value.nil?
           if hash_value.is_a? Hash
-            value = GiantBombApi::Resource::Factory.init_resource_from(hash_value, resource_name)
+            value = GiantBombApi::Resource::Factory.init_resource_from(hash_value, attribute_name: attribute, resource_name: resource_name)
           elsif hash_value.is_a? Array
-            value = hash_value.map { |json| GiantBombApi::Resource::Factory.init_resource_from(json, resource_name) }.compact
+            value = hash_value.map { |json| GiantBombApi::Resource::Factory.init_resource_from(json, attribute_name: attribute, resource_name: resource_name) }.compact
           else
             value = hash_value
           end

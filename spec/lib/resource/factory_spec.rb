@@ -27,7 +27,7 @@ describe GiantBombApi::Resource::Factory do
       let(:image) { double('Image') }
       it 'initializes the object based on the given resource_name' do
         expect(GiantBombApi::Resource::Image).to receive(:new).with(image_json).and_return(image)
-        expect(GiantBombApi::Resource::Factory.init_resource_from(image_json, :image)).to eq image
+        expect(GiantBombApi::Resource::Factory.init_resource_from(image_json, resource_name: :image)).to eq image
       end
     end
   end

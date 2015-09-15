@@ -4,6 +4,10 @@ module GiantBombApi
     def self.extended(base)
       base.instance_variable_set("@resource_attributes", {})
       base.include ResourceValueSetter
+
+      base.class_eval do
+        resource_attribute :id, :api_detail_url, :date_added, :date_last_updated
+      end
     end
 
     def resource_name(resource_name = nil)

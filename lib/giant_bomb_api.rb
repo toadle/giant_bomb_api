@@ -1,27 +1,7 @@
 require 'active_support/all'
+require 'require_all'
 
-require "giant_bomb_api/resource"
-require "giant_bomb_api/collection_resource"
-require "giant_bomb_api/resource_value_setter"
-require "giant_bomb_api/resource/game"
-require "giant_bomb_api/resource/platform"
-require "giant_bomb_api/resource/game_rating"
-require "giant_bomb_api/resource/factory"
-require "giant_bomb_api/resource/image"
-require "giant_bomb_api/resource/character"
-require "giant_bomb_api/resource/company"
-require "giant_bomb_api/resource/video"
-require "giant_bomb_api/resource/genre"
-require "giant_bomb_api/resource/publisher"
-require "giant_bomb_api/resource/release"
-require "giant_bomb_api/response"
-require "giant_bomb_api/exception"
-require "giant_bomb_api/exception/api_error"
-require "giant_bomb_api/client"
-require "giant_bomb_api/request"
-require "giant_bomb_api/request/search"
-require "giant_bomb_api/request/detail"
-require "giant_bomb_api/request/collection"
+require_rel 'giant_bomb_api/**/*.rb'
 
 module GiantBombApi
 
