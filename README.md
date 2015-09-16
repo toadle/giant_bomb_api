@@ -1,6 +1,6 @@
 # Giant Bomb API
 
-An unofficial ruby wrapper for the Giantbomb API (http://api.giantbomb.com). An API that provides structured data about videogames. You should inform yourself about the endpoints at http://www.giantbomb.com/api/documentation .
+An unofficial ruby wrapper for the [Giantbomb API](http://api.giantbomb.com). An API that provides structured data about videogames. You should inform yourself about the endpoints at http://www.giantbomb.com/api/documentation .
 
 [![Code Climate](https://codeclimate.com/github/toadle/filter8/badges/gpa.svg)](https://codeclimate.com/github/toadle/filter8)
 [![Test Coverage](https://codeclimate.com/github/toadle/filter8/badges/coverage.svg)](https://codeclimate.com/github/toadle/filter8)
@@ -12,6 +12,12 @@ As you'd expect. Nothing special here:
 
 ```
 gem install giant_bomb_api
+```
+
+or in your `Gemfile`
+
+```
+gem giant_bomb_api
 ```
 
 # How to use
@@ -53,6 +59,15 @@ or
 GiantBombApi::Request::Search.new("mario", resources: [GiantBombApi::Resource::Game, GiantBombApi::Resource::Character], limit: 100, page: 1)
 ```
 
+your can then use `GiantBombApi.client` to send the request like: 
+
+```
+GiantBombApi.client.send_request(<your request>)
+```
+
+This returns a `GiantBombApi::Response` where your can find your results in `response.results`. This might be a collection of things or just one object.
+
+
 ### Getting details
 
 If you want a special object by ID you can just do something like:
@@ -61,24 +76,38 @@ If you want a special object by ID you can just do something like:
 GiantBombApi::Resource::Game.find(id)
 ```
 
-This is available for all resources. This is the currently supported list: 
+Available resources are:
+
 ```
+- GiantBombApi::Resource::Accessory
 - GiantBombApi::Resource::Character
+- GiantBombApi::Resource::Chat
 - GiantBombApi::Resource::Company
-- GiantBombApi::Resource::Developer
-- GiantBombApi::Resource::Factory
+- GiantBombApi::Resource::Concept
+- GiantBombApi::Resource::Franchise
 - GiantBombApi::Resource::Game
 - GiantBombApi::Resource::GameRating
 - GiantBombApi::Resource::Genre
+- GiantBombApi::Resource::Location
+- GiantBombApi::Resource::Object
+- GiantBombApi::Resource::Person
 - GiantBombApi::Resource::Platform
-- GiantBombApi::Resource::Publisher
+- GiantBombApi::Resource::Promo
+- GiantBombApi::Resource::RatingBoard
+- GiantBombApi::Resource::Region
 - GiantBombApi::Resource::Release
+- GiantBombApi::Resource::Review
+- GiantBombApi::Resource::Theme
+- GiantBombApi::Resource::UserReview
 - GiantBombApi::Resource::Video
+- GiantBombApi::Resource::VideoType
 ```
 
 ### Requesting collections
 
 You can also directly query a resource that has a collection-endpoint.
+
+This is available for all resources that the [Giantbomb API](http://www.giantbomb.com/api/documentation) offers a 'collection' for. e.g. `game` and `games`or `character` and `characters`.
 
 e.g. all:
 
@@ -98,13 +127,6 @@ if you want to get more detailed your can do:
 GiantBombApi::Resource::Game.where(name: "spelunky", aliases: "something", sort: { name: :desc }, limit: 10, offset: 0)
 ```
 
-These types of calls are currently supported for: 
-
-```
-- GiantBombApi::Resource::Game
-- GiantBombApi::Resource::Company
-- GiantBombApi::Resource::Character
-```
 
 ## Response
 
@@ -123,4 +145,4 @@ Feedback and pull-request are always welcome.
 You can find the author via http://toadle.me
 
 ## License
-The filter8-gem is released under the [MIT License](http://opensource.org/licenses/MIT).
+The giant_bomb_api-gem is released under the [MIT License](http://opensource.org/licenses/MIT).
