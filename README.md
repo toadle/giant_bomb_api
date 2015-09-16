@@ -5,8 +5,10 @@ An unofficial ruby wrapper for the [Giantbomb API](http://api.giantbomb.com). An
 [![Code Climate](https://codeclimate.com/github/toadle/filter8/badges/gpa.svg)](https://codeclimate.com/github/toadle/filter8)
 [![Test Coverage](https://codeclimate.com/github/toadle/filter8/badges/coverage.svg)](https://codeclimate.com/github/toadle/filter8)
 
-# Installation
+## Changelog
+* **2015-08-27**: Small fix for `nginx`-config regarding gzipping of svgs
 
+# Installation
 
 As you'd expect. Nothing special here: 
 
@@ -35,7 +37,7 @@ end
 
 There is several ways to query the GiantBomb-Database.
 
-### General search.
+### General search
 ```
 GiantBombApi.search("your query")
 ```
