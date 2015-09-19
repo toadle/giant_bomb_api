@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name                      = "giant_bomb_api"
-  s.version                   = "0.5"
+  s.version                   = "0.5.1"
   s.default_executable        = "giantbomb"
 
   s.authors                   = ["Tim Adler"]
-  s.date                      = %q{2015-02-01}
+  s.date                      = %q{2015-09-19}
   s.description               = %q{An unofficial ruby wrapper for the Giantbomb API (http://api.giantbomb.com). An API that provides structured data about videogames.}
   s.summary                   = s.description
   s.email                     = %q{mail (at) toadle (dot) me}

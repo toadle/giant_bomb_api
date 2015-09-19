@@ -11,7 +11,7 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 [![Circle CI](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev.svg?style=svg)](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev)
 
 ## Changelog
-* **2015-09-19**: Initial release as 0.5
+* **2015-09-19**: Initial release as 0.5.1
 
 # Installation
 
