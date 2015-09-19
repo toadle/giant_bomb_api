@@ -8,6 +8,7 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 
 [![Code Climate](https://codeclimate.com/github/toadle/filter8/badges/gpa.svg)](https://codeclimate.com/github/toadle/filter8)
 [![Test Coverage](https://codeclimate.com/github/toadle/filter8/badges/coverage.svg)](https://codeclimate.com/github/toadle/filter8)
+[![Circle CI](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev.svg?style=svg)](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev)
 
 ## Changelog
 * **2015-09-19**: Initial release as 0.5
