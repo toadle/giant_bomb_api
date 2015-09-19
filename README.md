@@ -6,6 +6,7 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 
 **Contributors are welcome**. Please contact [@toadle](https://github.com/toadle).
 
+[![Gem Version](https://badge.fury.io/rb/giant_bomb_api.svg)](http://badge.fury.io/rb/giant_bomb_api)
 [![Code Climate](https://codeclimate.com/github/toadle/giant_bomb_api/badges/gpa.svg)](https://codeclimate.com/github/toadle/giant_bomb_api)
 [![Test Coverage](https://codeclimate.com/github/toadle/giant_bomb_api/badges/coverage.svg)](https://codeclimate.com/github/toadle/giant_bomb_api/coverage)
 [![Circle CI](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev.svg?style=svg)](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev)
