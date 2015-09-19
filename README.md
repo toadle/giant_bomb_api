@@ -6,8 +6,8 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 
 **Contributors are welcome**. Please contact [@toadle](https://github.com/toadle).
 
-[![Code Climate](https://codeclimate.com/github/toadle/filter8/badges/gpa.svg)](https://codeclimate.com/github/toadle/filter8)
-[![Test Coverage](https://codeclimate.com/github/toadle/filter8/badges/coverage.svg)](https://codeclimate.com/github/toadle/filter8)
+[![Code Climate](https://codeclimate.com/github/toadle/giant_bomb_api/badges/gpa.svg)](https://codeclimate.com/github/toadle/giant_bomb_api)
+[![Test Coverage](https://codeclimate.com/github/toadle/giant_bomb_api/badges/coverage.svg)](https://codeclimate.com/github/toadle/giant_bomb_api/coverage)
 
 ## Changelog
 * **2015-09-19**: Initial release as 0.5
