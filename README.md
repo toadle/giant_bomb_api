@@ -25,7 +25,7 @@ gem install giant_bomb_api
 or in your `Gemfile`
 
 ```
-gem giant_bomb_api
+gem 'giant_bomb_api'
 ```
 
 # How to use
