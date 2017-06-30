@@ -9,7 +9,7 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 [![Gem Version](https://badge.fury.io/rb/giant_bomb_api.svg)](http://badge.fury.io/rb/giant_bomb_api)
 [![Code Climate](https://codeclimate.com/github/toadle/giant_bomb_api/badges/gpa.svg)](https://codeclimate.com/github/toadle/giant_bomb_api)
 [![Test Coverage](https://codeclimate.com/github/toadle/giant_bomb_api/badges/coverage.svg)](https://codeclimate.com/github/toadle/giant_bomb_api/coverage)
-[![Circle CI](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev.svg?style=svg)](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev)
+[![Travis CI](https://travis-ci.org/toadle/giant_bomb_api.svg?branch=dev)](https://travis-ci.org/toadle/giant_bomb_api)
 
 ## Changelog
 * **2017-06-30**: `each_page`-iterator instead of `all`, which supports rate-limiting. Thanks to @naiyt
