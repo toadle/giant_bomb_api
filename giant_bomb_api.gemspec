@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                      = "giant_bomb_api"
-  s.version                   = "0.5.1"
+  s.version                   = "0.5.2"
   s.default_executable        = "giantbomb"
 
   s.authors                   = ["Tim Adler"]

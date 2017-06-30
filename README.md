@@ -117,16 +117,28 @@ You can also directly query a resource that has a collection-endpoint.
 
 This is available for all resources that the [Giantbomb API](http://www.giantbomb.com/api/documentation) offers a 'collection' for. e.g. `game` and `games`or `character` and `characters`.
 
-e.g. all:
+Use the `each_page` method to iterate through each page of a collection. `each_page` will accept a block and pass it the current page of results.
 
-```
-GiantBombApi::Resource::Game.all
+```ruby
+GiantBombApi::Resource::Game.each_page do |page|
+  names = page.results.map(&:name)
+  puts names
+end
 ```
 
-this call supports optional sorting, e.g.:
+`each_page` accepts the following optional keyword arguments:
 
-```
-GiantBombApi::Resource::Game.all(sort: { name: :desc })
+- `sort`: a sort option for the results
+- `limit`: the number of results to return per page. Defaults to 100 (the max allowed through the Giant Bomb API)
+- `offset`: defaults to 0
+- `should_rate_limit`: pass this in as true if you want to ensure that you are rate limiting your requests to under the required 200 per resource per hour (which is important if you're trying to iterate through every page of a resource)
+
+Example using the optional arguments:
+
+```ruby
+GiantBombApi::Resource::Game.each_page(sort: { name: :desc }, limit: 50, should_rate_limit: true) do |page|
+  # do something with the page
+end
 ```
 
 if you want to get more detailed your can do: 
