@@ -34,43 +34,70 @@ describe GiantBombApi::CollectionResource do
 
   end
 
-  describe '#where' do
+  describe 'query methods' do
     let(:client) { double("GiantBombApi::Client") }
-    before do 
+    let(:dummy_collection_request) { double("DummyCollectionRequest") }
+    let(:response) { double("GiantBombApi::Response") }
+
+    before do
       allow(GiantBombApi).to receive(:client).and_return(client)
     end
 
-    context "when given NO additional attributes" do
-      let(:dummy_collection_request) { double("DummyCollectionRequest") }
-      let(:response) { double("GiantBombApi::Response") }
+    describe '#where' do
+      context "when given NO additional attributes" do
+        it 'will send a blank collection-request for itself' do
+          expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection).and_return(dummy_collection_request)
+          expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
+          expect(DummyCollection.where).to eq response
+        end
+      end
 
-      it 'will send a blank collection-request for itself' do
-        expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection).and_return(dummy_collection_request)
-        expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
-        expect(DummyCollection.where).to eq response
+      context "when given a hash that does not contain :sort, :offset or :limit" do
+        it 'will send a collection-request with the given has as a filter' do
+          expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection, filter: { name: "something", aliases: "other" }).and_return(dummy_collection_request)
+          expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
+          expect(DummyCollection.where(name: "something", aliases: "other")).to eq response
+        end
+      end
+
+      context "when given a hash that contains :sort, :offset and :limit" do
+        it 'will send a collection-request with the the parameters assorted correctly' do
+          expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection, filter: { name: "something", aliases: "other" }, sort: {something: :desc}, limit: 10, offset: 1).and_return(dummy_collection_request)
+          expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
+          expect(DummyCollection.where(name: "something", aliases: "other", sort: {something: :desc}, limit: 10, offset: 1)).to eq response
+        end
       end
     end
-    context "when given a hash that does not contain :sort, :offset or :limit" do
-      let(:dummy_collection_request) { double("DummyCollectionRequest") }
-      let(:response) { double("GiantBombApi::Response") }
 
-      it 'will send a collection-request with the given has as a filter' do
-        expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection, filter: { name: "something", aliases: "other" }).and_return(dummy_collection_request)
-        expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
-        expect(DummyCollection.where(name: "something", aliases: "other")).to eq response
+    describe '#each_page' do
+      it 'will continually retrieve the next page until there are no more results' do
+        expect(DummyCollection).to receive(:where).and_return(dummy_collection_request).exactly(5).times
+        allow(dummy_collection_request).to receive(:has_more_results?).and_return(true)
+
+        times = 0
+        DummyCollection.each_page do |page|
+          times += 1
+          if times == 5
+            allow(dummy_collection_request).to receive(:has_more_results?).and_return(false)
+          end
+        end
       end
-    end
 
-    context "when given a hash that contains :sort, :offset and :limit" do
-      let(:dummy_collection_request) { double("DummyCollectionRequest") }
-      let(:response) { double("GiantBombApi::Response") }
+      context 'with should_rate_limit set to true' do
+        it 'will rate limit the calls so that there are not more than 200 per hour' do
+          expect(DummyCollection).to receive(:where).and_return(dummy_collection_request).exactly(3).times
+          allow(dummy_collection_request).to receive(:has_more_results?).and_return(true)
+          expect(DummyCollection).to receive(:sleep).twice
 
-      it 'will send a collection-request with the the parameters assorted correctly' do
-        expect(GiantBombApi::Request::Collection).to receive(:new).with(DummyCollection, filter: { name: "something", aliases: "other" }, sort: {something: :desc}, limit: 10, offset: 1).and_return(dummy_collection_request)
-        expect(client).to receive(:send_request).with(dummy_collection_request).and_return(response)
-        expect(DummyCollection.where(name: "something", aliases: "other", sort: {something: :desc}, limit: 10, offset: 1)).to eq response
+          times = 0
+          DummyCollection.each_page(should_rate_limit: true) do |page|
+            times += 1
+            if times == 3
+              allow(dummy_collection_request).to receive(:has_more_results?).and_return(false)
+            end
+          end
+        end
       end
     end
   end
-
 end
