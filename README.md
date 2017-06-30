@@ -12,6 +12,7 @@ This gem aims to provide access to most endpoints on the API. You'll be able to 
 [![Circle CI](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev.svg?style=svg)](https://circleci.com/gh/toadle/giant_bomb_api/tree/dev)
 
 ## Changelog
+* **2017-06-30**: `each_page`-iterator instead of `all`, which supports rate-limiting. Thanks to @naiyt
 * **2015-09-19**: Initial release as 0.5.1
 
 # Installation
