@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+ - 2.2.2
+env:
+  - CODECLIMATE_REPO_TOKEN=1fdcaf004abc7657d5aeb234af9f3da6419b07aaad7b78ea5d837bc9da2b78b9
+script: "bundle exec rspec && bundle exec codeclimate-test-reporter"

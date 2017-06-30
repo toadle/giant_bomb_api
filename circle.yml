@@ -1,9 +1,0 @@
-machine:
-  environment:
-    CODECLIMATE_REPO_TOKEN: "1fdcaf004abc7657d5aeb234af9f3da6419b07aaad7b78ea5d837bc9da2b78b9"
-  timezone: "Europe/Berlin"
-  ruby:
-    version: "2.2.2"
-test:
-  override:
-    bundle exec rspec && bundle exec codeclimate-test-reporter
