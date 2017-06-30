@@ -1,10 +1,9 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
-
 require 'giant_bomb_api'
 require 'rspec'
 require 'timecop'
 require 'pry-byebug'
+require 'simplecov'
+SimpleCov.start
 
 RSpec.configure do |config|
 

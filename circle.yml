@@ -4,3 +4,6 @@ machine:
   timezone: "Europe/Berlin"
   ruby:
     version: "2.2.2"
+test:
+  override:
+    bundle exec rspec && bundle exec codeclimate-test-reporter
