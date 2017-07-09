@@ -8,7 +8,7 @@ module GiantBombApi
   class Client
     attr_accessor :api_key
 
-    API_URL = 'http://api.giantbomb.com'
+    API_URL = 'https://www.giantbomb.com/api/'.freeze
 
     def initialize(api_key: nil, options: {})
       @api_key = api_key

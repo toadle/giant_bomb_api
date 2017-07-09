@@ -1,6 +1,6 @@
 # Giant Bomb API
 
-An unofficial ruby wrapper for the [Giantbomb API](http://api.giantbomb.com). An API that provides structured data about videogames. You should inform yourself about the endpoints at http://www.giantbomb.com/api/documentation .
+An unofficial ruby wrapper for the [Giantbomb API](https://www.giantbomb.com/api/). An API that provides structured data about videogames. You should inform yourself about the endpoints at http://www.giantbomb.com/api/documentation .
 
 This gem aims to provide access to most endpoints on the API. You'll be able to **search**, **filter** and page throught most of them. See further below on what is supported. 
 
