@@ -34,7 +34,7 @@ module GiantBombApi
       tries ||= (params[:tries] || 0)
 
       args = {}
-      args[:filter] = params.reject {|key,value| %i(sort limit offset).include?(key) }
+      args[:filter] = params.reject {|key,value| %i(sort limit offset tries).include?(key) }
       args[:sort] = sort if sort.present?
       args[:limit] = limit if limit.present?
       args[:offset] = offset if offset.present?
