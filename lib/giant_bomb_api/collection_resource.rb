@@ -12,8 +12,8 @@ module GiantBombApi
       self.instance_variable_get("@collection_resource_name") || self.resource_name.pluralize
     end
 
-    def each_page(sort: {}, limit: 100, offset: 0, should_rate_limit: false)
-      rate_limit(should_rate_limit) do
+    def each_page(sort: {}, limit: 100, offset: 0, should_rate_limit: false, rate_per_hour: 200)
+      rate_limit(should_rate_limit, rate_per_hour) do
         response = where(sort: sort, limit: limit, offset: offset, tries: 5)
         yield response
         offset += limit
@@ -51,7 +51,7 @@ module GiantBombApi
 
     private
 
-    def rate_limit(should_rate_limit, &block)
+    def rate_limit(should_rate_limit, rate_per_hour, &block)
       started_at = Time.now
       num_of_requests = 0
 
@@ -69,7 +69,7 @@ module GiantBombApi
 
           request_time = t2 - t1
           time_to_one_hour = (started_at + 1.hour) - t2
-          remaining_requests = 200 - num_of_requests
+          remaining_requests = rate_per_hour - num_of_requests
           min_time_per_request = time_to_one_hour / remaining_requests
 
           sleep(min_time_per_request - request_time) if request_time < min_time_per_request

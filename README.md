@@ -133,6 +133,7 @@ end
 - `limit`: the number of results to return per page. Defaults to 100 (the max allowed through the Giant Bomb API)
 - `offset`: defaults to 0
 - `should_rate_limit`: pass this in as true if you want to ensure that you are rate limiting your requests to under the required 200 per resource per hour (which is important if you're trying to iterate through every page of a resource)
+- `rate_per_hour`: defaults to 200 (the standard Giant Bomb hourly request limit). Override this value if you want to send more requests per hour (not recommended) or less.
 
 Example using the optional arguments:
 
