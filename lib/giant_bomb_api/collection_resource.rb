@@ -70,7 +70,11 @@ module GiantBombApi
           request_time = t2 - t1
           time_to_one_hour = (started_at + 1.hour) - t2
           remaining_requests = rate_per_hour - num_of_requests
-          min_time_per_request = time_to_one_hour / remaining_requests
+          min_time_per_request = if remaining_requests == 0
+                                   time_to_one_hour
+                                 else
+                                   time_to_one_hour / remaining_requests
+                                 end
 
           sleep(min_time_per_request - request_time) if request_time < min_time_per_request
         end
